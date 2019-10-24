@@ -21,9 +21,74 @@
   <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
+  <header>
+    <h1>TODOList</h1>
+  </header>
+  <main>
+    <section>
+      <form action="" method="get">
+        <input name="s" placeholder="search by title" type="search">
+        <select id="status">
+          <option value="all">all</option>
+          <option value="open">open</option>
+          <option value="done">done</option>
+        </select>
+        <select id="priority">
+          <option value="all">all</option>
+          <option value="high">high</option>
+          <option value="normal">normal</option>
+          <option value="low">low</option>
+        </select>
+        <button type="submit">create</button>
+      </form>
+      <form action="" method="get">
+        <p>
+          <label>Title:</label>
+          <input name="s" placeholder="search by title" type="text">
+        </p>
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
+        <p>
+          <label>Description:</label>
+          <textarea name="textarea"></textarea>
+        </p>
+
+        <p>
+          <label>Priority:</label>
+          <select id="item__priority">
+            <option value="high">high</option>
+            <option value="normal">normal</option>
+            <option value="low">low</option>
+          </select>
+        </p>
+
+        <p>
+          <button type="reset">cancel</button>
+          <button type="submit">save</button>
+        </p>
+
+      </form>
+    </section>
+    <section>
+      <div class="grid">
+        <div class="item">
+          <h2>title</h2>
+          <p>description</p>
+          <p>priority</p>
+          <div>
+            <ul>
+              <li>done</li>
+              <li>edeit</li>
+              <li>delete</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer>
+    <h2>Losev Yrii</h2>
+  </footer>
   <script src="js/vendor/modernizr-3.7.1.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
