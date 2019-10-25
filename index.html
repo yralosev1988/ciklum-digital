@@ -25,8 +25,8 @@
     <h1>TODOList</h1>
   </header>
   <main>
-    <section>
-      <form action="" method="get">
+    <section class="variables">
+      <form action="" method="post">
         <input name="s" placeholder="search by title" type="search">
         <select id="status">
           <option value="all">all</option>
@@ -39,17 +39,19 @@
           <option value="normal">normal</option>
           <option value="low">low</option>
         </select>
-        <button type="submit">create</button>
+
       </form>
-      <form action="" method="get">
+      <button id="showPopup">create</button>
+
+      <form id='popup' action="" method="post">
         <p>
           <label>Title:</label>
-          <input name="s" placeholder="search by title" type="text">
+          <input id='title' name="s" placeholder="search by title" type="text">
         </p>
 
         <p>
           <label>Description:</label>
-          <textarea name="textarea"></textarea>
+          <textarea id='description' name="textarea"></textarea>
         </p>
 
         <p>
@@ -62,23 +64,23 @@
         </p>
 
         <p>
-          <button type="reset">cancel</button>
-          <button type="submit">save</button>
+          <button id="hidePopup">cancel</button>
+          <button id="createTask">save</button>
         </p>
 
       </form>
     </section>
-    <section>
+    <section id="tasks">
       <div class="grid">
         <div class="item">
-          <h2>title</h2>
-          <p>description</p>
-          <p>priority</p>
-          <div>
-            <ul>
-              <li>done</li>
-              <li>edeit</li>
-              <li>delete</li>
+          <h2 id="item__title">title</h2>
+          <p id="item__description">description</p>
+          <p id="item__prior">priority</p>
+          <div id="hidePop">
+            <ul id="showPop">
+              <li id="ok">done</li>
+              <li id="edit">edeit</li>
+              <li id="del">delete</li>
             </ul>
           </div>
         </div>
