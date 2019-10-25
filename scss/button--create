@@ -1,0 +1,94 @@
+/**
+ * Сброс стилей у кнопки.
+ * Придётся немного поработать, чтобы получить нейтральный вид.
+*/
+body{
+  font: 20px/42px 'Quicksand', sans-serif;
+}
+button {
+
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  /* отображаем курсор в виде руки при наведении; некоторые
+  считают, что необходимо оставлять стрелочный вид для кнопок */
+  cursor: pointer;
+}
+
+/**
+ * Кнопка
+ */
+.btn {
+  /* по-умолчанию для <button>, но пригодится для <a> */
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+
+  /* создаём маленькие отступы, если кнопки перенесутся на две строки */
+  margin: 2px 0;
+
+  /* невидимая граница (понадобится для цвета при наведении/фокусе) */
+  border: solid 1px transparent;
+  border-radius: 4px;
+
+  /* размер строится из текста и отступов (без width/height) */
+  padding: 0 1em;
+
+  /* убедитесь, что достаточно контраста! */
+  color: #ffffff;
+  background-color: #9555af;
+}
+
+/* олдскульный эффект «нажатия» + цветовые правки */
+.btn:active {
+  transform: translateY(1px);
+  filter: saturate(150%);
+}
+
+/* инвертируем цвета при наведении */
+.btn:hover {
+  color: #9050aa;
+  border-color: currentColor;
+  background-color: white;
+}
+
+/* Firefox: сбрасываем внутреннюю границу при фокусе */
+.btn::-moz-focus-inner {
+  border: none;
+}
+
+/* убеждаемся, что есть видимые границы при фокусе */
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.5),
+  0 0 0 1.5px rgba(255, 105, 180, 0.5);
+}
+
+/* скрываем фокусные стили, если используется не клавиатура */
+.js-focus-visible .btn:focus:not(.focus-visible) {
+  box-shadow: none;
+}
+
+/* Не относящиеся к примеру стили */
+/*
+body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  min-height: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  font-family: system-ui, sans-serif;
+  font-size: 90%;
+  line-height: 1.35;
+  color: black;
+  background-color: #f8f6f4;
+}
+*/
+.btn--right{
+  margin-left: 25px;
+}

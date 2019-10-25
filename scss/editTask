@@ -1,0 +1,21 @@
+.editTask{
+  padding: 40px;
+  width: 300px;
+  margin: 0 auto;
+}
+.editTask label{
+  display: block;
+}
+.editTask p{
+  margin: 0;
+
+}
+.editTask input,
+.editTask select,
+.editTask textarea {
+  width: 100%;
+}
+.button__wrapper{
+  display: block;
+  padding-top: 70px;
+}
