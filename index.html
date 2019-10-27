@@ -34,7 +34,7 @@
   </header>
   <main class="taskSPA">
     <section class="variables">
-      <form class="taskFilter" action="" method="post">
+      <form class="taskFilter" >
         <input class="search--panel" type="search" placeholder="search by title">
         <select class="select--panel select--status" id="status">
           <option value="all">all</option>
@@ -70,7 +70,8 @@
             </p>
             <p class="button__wrapper">
               <button class="btn " id="closeModal">cancel</button>
-              <button class="btn btn--right" id="createTask">save</button>
+              <button class="btn btn--right" data-condition="create" id="createTask">save</button>
+              <!--<button class="btn btn&#45;&#45;right createTask">save</button>-->
             </p>
 
           </form>
@@ -80,7 +81,7 @@
     </section>
     <section id="tasks">
       <div class="grid" id="grid">
-        <div class="tasks__item">
+     <!--   <div class="tasks__item">
           <h2 class="item__title">title</h2>
           <p class="item__description">description</p>
           <div class="wrapper grid2">
@@ -94,7 +95,7 @@
             </div>
           </div>
 
-        </div>
+        </div>-->
       </div>
     </section>
 
@@ -106,7 +107,8 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/tasks__item.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
