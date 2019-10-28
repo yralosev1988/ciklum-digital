@@ -1,23 +1,27 @@
 'use strict';
-let openModal = document.getElementById('openModal');
-let closeModal = document.getElementById('closeModal');
-let modal = document.getElementById('modal');
+let createTaskInModal = document.getElementById('createTaskInModal');//кнопкка создания задачи в модальном окне
+let closeModal = document.getElementById('closeModal');//кнопка закрытия модального окна
+let modal = document.getElementById('modal');//модальное окно
+let task = document.getElementById('createTask');//кнопка создания или изменения задачи взависимости от флага
 
-let task = document.getElementById('createTask');
+//отображение модального окна кнопкой create и устанавливаю флаг
+// для определения откуда будет нажат submit
 
-openModal.onclick = function (event) {
+createTaskInModal.onclick = function (event) {
   event.preventDefault();
-  task.dataset.condition="create";
-
+  task.dataset.condition="create";//устанавливаю флаг
   modal.style.display = 'block';
-
 };
+
+//закрытие модального окна кнопкой
+
 closeModal.onclick = function (event) {
   event.preventDefault();
-
-  let modal = document.getElementById('modal');
   modal.style.display = 'none';
 };
+
+//закрытие модального окна кликом на затемненный участок
+
 window.onclick = function (event) {
   if (event.target === modal) {
     modal.style.display = 'none';

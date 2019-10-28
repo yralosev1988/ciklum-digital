@@ -3,9 +3,6 @@
  * ╨б╨▒╤А╨╛╤Б ╤Б╤В╨╕╨╗╨╡╨╣ ╤Г ╨║╨╜╨╛╨┐╨║╨╕.
  * ╨Я╤А╨╕╨┤╤С╤В╤Б╤П ╨╜╨╡╨╝╨╜╨╛╨│╨╛ ╨┐╨╛╤А╨░╨▒╨╛╤В╨░╤В╤М, ╤З╤В╨╛╨▒╤Л ╨┐╨╛╨╗╤Г╤З╨╕╤В╤М ╨╜╨╡╨╣╤В╤А╨░╨╗╤М╨╜╤Л╨╣ ╨▓╨╕╨┤.
 */
-body {
-  font: 20px/42px 'Quicksand', sans-serif; }
-
 button {
   padding: 0;
   border: none;
@@ -59,25 +56,8 @@ button {
 .js-focus-visible .btn:focus:not(.focus-visible) {
   box-shadow: none; }
 
-/* ╨Э╨╡ ╨╛╤В╨╜╨╛╤Б╤П╤Й╨╕╨╡╤Б╤П ╨║ ╨┐╤А╨╕╨╝╨╡╤А╤Г ╤Б╤В╨╕╨╗╨╕ */
-/*
-body {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  align-content: center;
-  min-height: 100%;
-  max-width: 40rem;
-  margin: 0 auto;
-  padding: 0.5rem 1rem;
-  font-family: system-ui, sans-serif;
-  font-size: 90%;
-  line-height: 1.35;
-  color: black;
-  background-color: #f8f6f4;
-}
-*/
+/* ╨╝╨╛╨┤╨╕╤Д╨╕╨║╨░╤В╨╛╤А╤Л */
 .btn--right {
   margin-left: 25px; }
 
-/*# sourceMappingURL=button--create.css.map */
+/*# sourceMappingURL=buttons.css.map */

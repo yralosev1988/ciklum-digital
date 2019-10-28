@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="scss/style.css">
 
-  <link rel="stylesheet" href="scss/taskFilter.css">
-  <link rel="stylesheet" href="scss/select.css">
-  <link rel="stylesheet" href="scss/button--create.css">
+  <link rel="stylesheet" href="scss/search-field.css">
+  <link rel="stylesheet" href="scss/select-panel.css">
+  <link rel="stylesheet" href="scss/buttons.css">
+  <link rel="stylesheet" href="scss/footer.css">
+
   <link rel="stylesheet" href="scss/popup.css">
   <link rel="stylesheet" href="scss/editTask.css">
   <link rel="stylesheet" href="scss/tasks__item.css">
@@ -26,62 +28,55 @@
 </head>
 
 <body>
-  <!--[if IE]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif]-->
-  <header class="header">
+  <main>
+    <header class="header">
     <h1 class="header__title">TODOList</h1>
   </header>
-  <main class="taskSPA">
-    <section class="variables">
-      <form class="taskFilter" >
-        <input class="search--panel" type="search" placeholder="search by title">
-        <select class="select--panel select--status" id="status">
+    <section class="panel">
+    <div id="modal">
+      <div id="modal__content">
+        <form class="editTask" action="" method="post">
+          <p>
+            <label>Title:</label>
+            <input id='title' name="s" placeholder="title" type="text">
+          </p>
+          <p>
+            <label>Description:</label>
+            <textarea id='description' name="textarea" placeholder="description"></textarea>
+          </p>
+          <p>
+            <label>Priority:</label>
+            <select id="priority">
+              <option value="high">high</option>
+              <option value="normal">normal</option>
+              <option value="low">low</option>
+            </select>
+          </p>
+          <p class="button__wrapper">
+            <button class="btn " id="closeModal">cancel</button>
+            <button class="btn btn--right" data-condition="create" id="createTask">save</button>
+          </p>
+
+        </form>
+      </div>
+    </div>
+    <input class="search-field" type="search" id="searchFilter" placeholder="search by title">
+    <select class="select-panel" id="statusFilter">
           <option value="all">all</option>
           <option value="open">open</option>
           <option value="done">done</option>
         </select>
-        <select class="select--panel select--priority" id="priority">
+    <select class="select-panel" id="priorityFilter">
           <option value="all">all</option>
           <option value="high">high</option>
           <option value="normal">normal</option>
           <option value="low">low</option>
         </select>
-      </form>
-      <button class="btn" id="openModal">create</button>
-      <div id="modal">
-        <div id="modal__content">
-          <form class="editTask" action="" method="post">
-            <p>
-              <label>Title:</label>
-              <input id='title' name="s" placeholder="title" type="text">
-            </p>
-            <p>
-              <label>Description:</label>
-              <textarea id='description' name="textarea" placeholder="description"></textarea>
-            </p>
-            <p>
-              <label>Priority:</label>
-              <select id="item__priority">
-                <option value="high">high</option>
-                <option value="normal">normal</option>
-                <option value="low">low</option>
-              </select>
-            </p>
-            <p class="button__wrapper">
-              <button class="btn " id="closeModal">cancel</button>
-              <button class="btn btn--right" data-condition="create" id="createTask">save</button>
-              <!--<button class="btn btn&#45;&#45;right createTask">save</button>-->
-            </p>
+    <button class="btn" id="createTaskInModal">create</button>
+  </section>
+    <section class="tasks grid" id="tasks">
 
-          </form>
-        </div>
-      </div>
-
-    </section>
-    <section id="tasks">
-      <div class="grid" id="grid">
-     <!--   <div class="tasks__item">
+     <!--   <div class="tasks__item" data-id="0">
           <h2 class="item__title">title</h2>
           <p class="item__description">description</p>
           <div class="wrapper grid2">
@@ -96,9 +91,8 @@
           </div>
 
         </div>-->
-      </div>
-    </section>
 
+  </section>
   </main>
   <footer>
     <h2>Losev Yrii</h2>

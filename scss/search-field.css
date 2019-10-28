@@ -1,0 +1,8 @@
+.search-field {
+  border: 1px solid grey;
+  width: 300px;
+  height: 42px;
+  padding-left: 80px;
+  background: url("../img/search-icon.png") 15px 2px no-repeat; }
+
+/*# sourceMappingURL=search-field.css.map */

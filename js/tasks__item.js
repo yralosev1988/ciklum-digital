@@ -1,36 +1,31 @@
-let createTask = document.getElementById('createTask');
-let editTask = document.querySelector('editTask');
+'use strict';
+let createTask = document.getElementById('createTask');//кнопка создания или изменения задачи взависимости от флага
+
+let tasks = document.getElementById('tasks'); //контейнер для списка задач
+let title = document.getElementById('title'); //title из модального окна
+let description = document.getElementById('description');//description из модального окна
+let priority = document.getElementById('priority');//priority из модального окна
+
+let showPop=document.querySelector('.showPop');
 
 
-let tasks = document.getElementById('tasks');
 
-/*
-let task = document.getElementById('task');
-*/
+//глобальные переменные для хранения состояния this
 let currentThisObjNode;
 let item__title;
 let item__description;
 let item__prior;
 
-
-
 //value of input
 
 
 createTask.onclick=function(event){
-  if(task.dataset.condition ==='create'){
-    let grid = document.querySelector('.grid');
 
-    let item__title = document.querySelector('.item__title');
-    let item__description = document.querySelector('.item__description');
-    let item__prior = document.querySelector('.item__prior');
-    let title = document.getElementById('title');
-    let description = document.getElementById('description');
-    let item__priority = document.getElementById('item__priority');
-    let titleValue=title.value;
-    let descriptionValue=description.value;
-    let priorityValue=item__priority.value;
-    let taskNode=`<div class="tasks__item">
+  let titleValue=title.value;//значение title из модального окна
+  let descriptionValue=description.value;//значение description из модального окна
+  let priorityValue=priority.value;//значение priority из модального окна
+  //task item html для динамиического добавления
+  let taskNode=`<div class="tasks__item" data-id="open">
     <h2 class="item__title">${titleValue}</h2>
   <p class="item__description">${descriptionValue}</p>
   <div class="wrapper grid2">
@@ -44,91 +39,111 @@ createTask.onclick=function(event){
   </div>
   </div>
   </div>`;
-    grid.insertAdjacentHTML("beforeend", taskNode);
-    let modal = document.getElementById('modal');
-    modal.style.display = 'none';
+
+  if(task.dataset.condition ==='create'){
     event.preventDefault();
-    event.stopPropagation();
+    tasks.insertAdjacentHTML("beforeend", taskNode);
+    modal.style.display = 'none';
   }
   if(task.dataset.condition ==='save') {
-    alert(this);
-    let title = document.getElementById('title');
-    let description = document.getElementById('description');
-    let item__priority = document.getElementById('item__priority');
-    let titleValue=title.value;
-    let descriptionValue=description.value;
-    let priorityValue=item__priority.value;
+    event.preventDefault();
     item__title.innerHTML=titleValue;
     item__description.innerHTML=descriptionValue;
     item__prior.innerHTML=priorityValue;
-
-
-    let modal = document.getElementById('modal');
     modal.style.display = 'none';
-    event.preventDefault();
-    event.stopPropagation();
-
   }
 };
 
-/*
-window.onclick= function(event){
-  if (event.target.className !== "showConfig") {
-    grid.querySelector('.showPop').setAttribute('style', 'display: none ;');
-
-  }
-
-/!*
-  grid.querySelector('.showPop').setAttribute('style', 'display: none ;');
-*!/
-};
-*/
-
-let grid = document.querySelector('.grid');
-grid.onclick = function (event) {
-  /*event.preventDefault();*/
+tasks.onclick = function (event) {
   if (event.target.className === "showConfig") {
-
     tasks.querySelectorAll('.showPop').forEach(element=>{element.style.display="none"});
     event.target.querySelector('.showPop').setAttribute('style', 'display: block ;');
 
   }
-
   if (event.target.className === "ok") {
-    let showPop = document.querySelector('.showPop');
-    let tasks__item = document.querySelector('.tasks__item');
     event.preventDefault();
-    /*showPop.setAttribute('style', 'display: none ;');
-    */event.target.parentNode.parentNode.parentNode.parentNode.style.backgroundColor = "blue";//rework event
-    event.stopPropagation();
+    event.target.parentNode.parentNode.parentNode.parentNode.style.backgroundColor = "blue";
+    event.target.parentNode.parentNode.parentNode.parentNode.dataset.id= 'done';
+    //rework event
+    event.target.parentNode.parentNode.querySelector('.showPop').setAttribute('style', 'display: none ;');
   }
   if (event.target.className === "del") {
     event.preventDefault();
-    event.stopPropagation();
     event.target.parentNode.parentNode.parentNode.parentNode.remove();
+    event.target.parentNode.parentNode.querySelector('.showPop').setAttribute('style', 'display: none ;');
   }
   if (event.target.className === "edit") {
     event.preventDefault();
-    event.stopPropagation();
+    task.dataset.condition='save';//установка флага
 
-    task.dataset.condition='save';
-
+    //отслеживаю на каком обьекте задач был клик и записываю в глобальную переменную текущие значения полей
     currentThisObjNode=event.target.parentNode.parentNode.parentNode.parentNode;
     item__title = currentThisObjNode.querySelector('.item__title');
     item__description = currentThisObjNode.querySelector('.item__description');
     item__prior=currentThisObjNode.querySelector('.item__prior');
-    alert(item__title.innerHTML);
-
-    let title = document.getElementById('title');
-    let description = document.getElementById('description');
+    //записываю в текущее модальное окно поля из глобальной переменной
     title.innerHTML=item__title.innerHTML;
     description.innerHTML=item__description.innerHTML;
 
+    event.target.parentNode.parentNode.querySelector('.showPop').setAttribute('style', 'display: none ;');
 
-    let showPop=document.querySelector('.showPop');
-    showPop.setAttribute('style', 'display: none ;');
     modal.style.display='block';
   }
 };
 
+
+//filter
+//получаю массив ассоциативных обьектов с полем приоритета
+let selectPriority=document.getElementById('priorityFilter');
+
+let ARRAY=document.querySelectorAll(".item__prior");
+  selectPriority.onchange= function(event){
+  ARRAY=document.querySelectorAll(".item__prior");
+
+  ARRAY.forEach(element=>{
+    if(element.innerHTML===selectPriority.value || selectPriority.value==='all'){
+      element.parentNode.parentNode.style.display="block";
+    }
+    /*if(selectPriority.value==='all'){
+      alert('all');
+    }*/
+    else {
+      element.parentNode.parentNode.style.display = "none"
+    }})
+
+};
+
+
+
+let statusFilter=document.getElementById('statusFilter');
+statusFilter.onchange= function(event){
+  let ARRAY=document.querySelectorAll(".tasks__item");
+  ARRAY.forEach(element=>{
+    if(statusFilter.value===element.dataset.id || statusFilter.value==='all'){
+      element.style.display="block";
+    }else{
+      element.style.display="none";
+
+    }
+    /*if(selectPriority.value==='all'){
+      alert('all');
+    }*/
+    /*else {
+      element.parentNode.parentNode.style.display = "none"
+    }*/
+  })
+
+};
+let searchFilter= document.getElementById('searchFilter');
+  searchFilter.onchange= function (event) {
+  let ARRAY=document.querySelectorAll(".item__title");
+  ARRAY.forEach(element=>{
+    if(element.innerHTML.includes(searchFilter.value)){
+      element.parentNode.style.display="block";
+    }
+    else {
+      element.parentNode.style.display = "none"
+    }
+  });
+};
 

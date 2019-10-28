@@ -2,11 +2,8 @@
  * Сброс стилей у кнопки.
  * Придётся немного поработать, чтобы получить нейтральный вид.
 */
-body{
-  font: 20px/42px 'Quicksand', sans-serif;
-}
-button {
 
+button {
   padding: 0;
   border: none;
   font: inherit;
@@ -71,24 +68,7 @@ button {
   box-shadow: none;
 }
 
-/* Не относящиеся к примеру стили */
-/*
-body {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  align-content: center;
-  min-height: 100%;
-  max-width: 40rem;
-  margin: 0 auto;
-  padding: 0.5rem 1rem;
-  font-family: system-ui, sans-serif;
-  font-size: 90%;
-  line-height: 1.35;
-  color: black;
-  background-color: #f8f6f4;
-}
-*/
+/* модификаторы */
 .btn--right{
   margin-left: 25px;
 }

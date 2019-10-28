@@ -1,6 +1,4 @@
-* {box-sizing: border-box;}
-
-.select--panel
+.select-panel
 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -10,7 +8,6 @@
   height: 42px;
   padding-left: 10px;
   color: grey;
-  font: 20px/42px 'Quicksand', sans-serif;
   outline: none;
   cursor: pointer;
 }

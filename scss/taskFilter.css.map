@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,CAAE;EAAC,UAAU,EAAE,UAAU;;AACzB,WAAY;AAAC;eACI;EACf,OAAO,EAAE,YAAY;;AAIvB,cAAe;EACb,IAAI,EAAE,iCAAiC;EACvC,MAAM,EAAE,cAAc;EACtB,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,IAAI;EACZ,YAAY,EAAE,IAAI;EAClB,UAAU,EAAE,gDAAgD",
-"sources": ["taskFilter"],
-"names": [],
-"file": "taskFilter.css"
-}
