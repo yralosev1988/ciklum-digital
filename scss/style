@@ -1,6 +1,0 @@
-$font-stack:    'Quicksand', sans-serif;
-$primary-color: grey;
-
-body {
-  font: 20px/42px $font-stack;
-}

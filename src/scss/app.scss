@@ -1,0 +1,584 @@
+/* By Athlon Front-End Team */
+
+/* Core variables */
+@import 'base/vars';
+
+/* CSS Reset */
+@import 'base/reset';
+
+/* CSS print */
+@import 'base/print';
+
+/* Fonts */
+@import 'base/fonts';
+
+/* Mixins, helpers and functions */
+@import 'base/mixins';
+
+/* Vendor */
+
+/* Components */
+
+/* Browser specific styles */
+@import 'dirty/hacks';
+
+/* Demo styles */
+
+body {
+  background: $body-background-color;
+  color: $foreground-color;
+  font-family: 'DINP-R', arial, serif;
+}
+
+header {
+  font-size: 2em;
+  margin: 20px;
+  color: $caption-color;
+  text-align: center;
+  background: $foreground-color url('../images/design/heading.png') center 20px no-repeat;
+  padding: 60px 30px 30px;
+  background-size: 160px;
+}
+
+.logo {
+  margin: 0 auto;
+  display: block;
+}
+
+
+$font-stack:    'Quicksand', sans-serif;
+$primary-color: grey;
+
+body {
+  font: 20px/42px $font-stack;
+}
+
+
+//popup
+/*
+.b-container{
+  width:200px;
+  height:150px;
+  background-color: #ccc;
+  margin:0px auto;
+  padding:10px;
+  font-size:30px;
+  color: #fff;
+}
+*/
+#modal{
+  width:100%;
+  height: 800px;
+  background-color: rgba(0,0,0,0.5);
+  overflow:auto;
+  position:fixed;
+  display: none;
+  z-index: 1000;
+  left: 0;
+  top:0;
+}
+#modal #modal__content{
+  margin:40px auto 0px auto;
+  width:350px;
+  height: 60%;
+  z-index: 99999;
+  padding:10px;
+  background-color: #c5c5c5;
+  border-radius:5px;
+  box-shadow: 0px 0px 10px #000;
+}
+
+
+
+//task item
+.grid{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+  width: 1000px;
+  /*height: 60vh;*/
+  margin: 0 auto;
+  text-align: center;
+
+}/*
+.hidePop{
+
+  margin: 10px;
+}*/
+
+.item__prior{
+  display: inline-block;
+}
+.showConfig{
+  width: 50px;
+  height: 45px;
+  margin-left: 50px;
+  background-color: grey;
+}
+.grid2{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+.tasks__item{
+  background-color: lightgrey;
+}
+
+
+
+
+//main
+
+
+/*! HTML5 Boilerplate v7.2.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 2.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+  margin: 0.2em 0;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+
+.showPop{
+  display: none;
+}
+h1{
+  font-size: 40px;
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+  display: none !important;
+}
+
+/*
+* Hide only visually, but have it available for screen readers:
+* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+*
+* 1. For long content, line feeds are not interpreted as spaces and small width
+*    causes content to wrap 1 word per line:
+*    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+*/
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+* Extends the .sr-only class to allow the element
+* to be focusable when navigated to via the keyboard:
+* https://www.drupal.org/node/897638
+*/
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+* Hide visually and from screen readers, but maintain layout
+*/
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+* Clearfix: contain floats
+*
+* For modern browsers
+* 1. The space content is one way to avoid an Opera bug when the
+*    `contenteditable` attribute is included anywhere else in the document.
+*    Otherwise it causes space to appear at the top and bottom of elements
+*    that receive the `clearfix` class.
+* 2. The use of `table` rather than `block` is only necessary if using
+*    `:before` to contain the top-margins of child elements.
+*/
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster */
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  /*
+     * Printing Tables:
+     * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+//searchfield
+.search-field {
+  border: 1px solid grey;
+  width: 300px;
+  height: 42px;
+  padding-left: 80px;
+  background: url("../images/design/search-icon.png") 15px 2px no-repeat; }
+
+
+//pop
+
+
+.showPop{
+  width: 100px;
+  height: 150px;
+  background-color: darkcyan;
+  position: absolute;
+  top: 55px;
+  left: -50px;
+}
+.showPop div{
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  border-bottom: 1px solid pink;
+
+}
+.showConfig{
+  position: relative;
+}
+//select
+.select-panel
+{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("../images/design/arrowDown-icon.png") no-repeat 96% 50%;
+  width: 200px;
+  height: 42px;
+  padding-left: 10px;
+  color: grey;
+  outline: none;
+  cursor: pointer;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+
+
+.editTask{
+  padding: 40px;
+  width: 300px;
+  margin: 0 auto;
+}
+.editTask label{
+  display: block;
+}
+.editTask p{
+  margin: 0;
+
+}
+.editTask input,
+.editTask select,
+.editTask textarea {
+  width: 100%;
+}
+.button__wrapper{
+  display: block;
+  padding-top: 70px;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+footer{
+  height: 80px;
+  background-color: grey;
+}
+header{
+  height: 80px;
+  padding-top: 40px;
+  background-color: grey;
+}
+header h1{
+  margin: 0;
+}
+main {
+  min-height: calc(100vh - 80px);
+}
+
+
+/**
+ * Сброс стилей у кнопки.
+ * Придётся немного поработать, чтобы получить нейтральный вид.
+*/
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  /* отображаем курсор в виде руки при наведении; некоторые
+  считают, что необходимо оставлять стрелочный вид для кнопок */
+  cursor: pointer;
+}
+
+/**
+ * Кнопка
+ */
+.btn {
+  /* по-умолчанию для <button>, но пригодится для <a> */
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+
+  /* создаём маленькие отступы, если кнопки перенесутся на две строки */
+  margin: 2px 0;
+
+  /* невидимая граница (понадобится для цвета при наведении/фокусе) */
+  border: solid 1px transparent;
+  border-radius: 4px;
+
+  /* размер строится из текста и отступов (без width/height) */
+  padding: 0 1em;
+
+  /* убедитесь, что достаточно контраста! */
+  color: #ffffff;
+  background-color: #9555af;
+}
+
+/* олдскульный эффект «нажатия» + цветовые правки */
+.btn:active {
+  transform: translateY(1px);
+  filter: saturate(150%);
+}
+
+/* инвертируем цвета при наведении */
+.btn:hover {
+  color: #9050aa;
+  border-color: currentColor;
+  background-color: white;
+}
+
+/* Firefox: сбрасываем внутреннюю границу при фокусе */
+.btn::-moz-focus-inner {
+  border: none;
+}
+
+/* убеждаемся, что есть видимые границы при фокусе */
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.5),
+  0 0 0 1.5px rgba(255, 105, 180, 0.5);
+}
+
+/* скрываем фокусные стили, если используется не клавиатура */
+.js-focus-visible .btn:focus:not(.focus-visible) {
+  box-shadow: none;
+}
+
+/* модификаторы */
+.btn--right{
+  margin-left: 25px;
+}

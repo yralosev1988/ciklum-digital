@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,SAAS;EACP,OAAO,EAAE,IAAI;EACb,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,MAAM;;AAEhB,eAAe;EACb,OAAO,EAAE,KAAK;;AAEhB,WAAW;EACT,MAAM,EAAE,CAAC;;AAGX;;kBAEmB;EACjB,KAAK,EAAE,IAAI;;AAEb,gBAAgB;EACd,OAAO,EAAE,KAAK;EACd,WAAW,EAAE,IAAI",
-"sources": ["editTask"],
-"names": [],
-"file": "editTask.css"
-}
