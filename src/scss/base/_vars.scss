@@ -1,17 +1,8 @@
-/**
- * Variables
-*/
+$font-stack: 'Quicksand', sans-serif;
+$primary-color: grey;
+$body-background-color: white;
+$modal-background-color: rgba(0,0,0,0.5);
+$modal__content-background-color: rgba(0,0,0,0.5);
+$caption-color: #000;
+$input-color: darken($primary-color, 30%);
 
-/* Typography */
-/* Breakpoints */
-/* Paths */
-/* Grid setup */
-/* Colour palette */
-$black: #000;
-$white: #fff;
-
-$body-background-color: #333;
-$foreground-color: #fff;
-$caption-color: #464646;
-
-/* Components */

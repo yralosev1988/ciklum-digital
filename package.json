@@ -1,8 +1,8 @@
 {
-  "name": "@weareathlon/frontend-webpack-boilerplate",
-  "version": "3.2.0",
-  "description": "Webpack based boilerplate with SASS and babel ES6/7 support.",
-  "homepage": "https://github.com/WeAreAthlon/frontend-webpack-boilerplate#readme",
+  "name": "frontend-webpack-boilerplate",
+  "version": "0.0.9",
+  "description": "",
+  "homepage": "",
   "scripts": {
     "build": "webpack --mode=development",
     "watch": "webpack --mode=development --watch",
@@ -17,23 +17,6 @@
     "template",
     "setup"
   ],
-  "author": "WeAreAthlon <hello@weareathlon.com> (https://www.weareathlon.com)",
-  "contributors": [
-    {
-      "name": "Plamen Nikolov",
-      "email": "me@pnikoloff.com",
-      "url": "https://pnikoloff.com"
-    }
-  ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:WeAreAthlon/frontend-webpack-boilerplate.git"
-  },
-  "bugs": {
-    "url": "https://github.com/WeAreAthlon/frontend-webpack-boilerplate/issues",
-    "email": "plamen@athlonsofia.com"
-  },
   "engines": {
     "node": ">=8.9.0"
   },
