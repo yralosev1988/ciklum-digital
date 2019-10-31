@@ -128,18 +128,22 @@ button {
 
 //TASKS__ITEM
 .itemTitle {
-
+  height: 20px;
+  overflow: hidden;
   text-align: center;
-  font: 800 20px/40px $font-stack;
+  font: 800 20px/20px $font-stack;
   margin: 10px 25px 20px 25px;
 }
 
 .itemDescription {
-  font: 20px/40px $font-stack;
+  height: 100px;
+  overflow: hidden;
+  font: 20px/20px $font-stack;
   margin: 10px 5px 20px 5px;
 }
 
 .tasks__item {
+  height: 250px;
   background-color: lightgrey;
   padding: 10px 10px 20px 10px;
   position: relative;
@@ -197,14 +201,23 @@ button {
 .showPop {
   display: none;
   width: 100px;
-  height: 150px;
   font: 20px/42px $font-stack;
   background-color: $primary-color;
   position: absolute;
   z-index: 10;
   top: 55px;
   left: -53px;
-
+  &:before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-right: 3px solid black;
+    border-top: 3px solid black;
+    transform: rotate(-45deg);
+    top: -12px;
+    right: 15px;
+  }
   div {
     box-sizing: border-box;
     width: 100%;
@@ -220,24 +233,6 @@ button {
     &:hover {
       background-color: #fff;
     }
-  }
-}
-
-.ok {
-  &:before {
-    content: "";
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    border-right: 3px solid black;
-    border-top: 3px solid black;
-    transform: rotate(-45deg);
-    top: -12px;
-    right: 15px;
-  }
-
-  & :hover {
-    background-color: #fff;
   }
 }
 

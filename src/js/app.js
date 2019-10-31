@@ -11,6 +11,7 @@ const tasks = document.getElementById('tasks'); // element to render tasks
 const titleModal = document.getElementById('title'); // title from modal
 const titleDescription = document.getElementById('description');// description modal
 const titlePriority = document.getElementById('priority');// priority from modal
+
 // global variables to save values from targ obj
 let itemTitle;
 let itemDescription;
@@ -29,7 +30,6 @@ function setFlag(flag) {
   createTask.dataset.condition = flag;
 }
 
-// NEW FILTER
 function filter() {
   // get ARRAY with tasks DOM-objects
   const ARRAY = document.querySelectorAll('.tasks__item');
@@ -44,10 +44,10 @@ function filter() {
     const elem = element;
     // each element in array compare with values in tasks
     if (elem.querySelector('.itemTitle')
-            .innerHTML
-            .includes(searchValue)
-        && (elem.dataset.id === statusValue || statusValue === 'all')
-        && (elem.querySelector('.itemPrior').innerHTML === priorityValue || priorityValue === 'all')) {
+      .innerHTML
+      .includes(searchValue)
+            && (elem.dataset.id === statusValue || statusValue === 'all')
+            && (elem.querySelector('.itemPrior').innerHTML === priorityValue || priorityValue === 'all')) {
       // do something
       elem.style.display = 'block';
     } else {
@@ -56,29 +56,23 @@ function filter() {
   });
 }
 
-// listener to show modal and set flag "create"
-createTaskInModal.addEventListener('click', (event) => {
+function createTaskInModalCallback(event) {
   event.preventDefault();
   showModal();
   setFlag('create');
-});
-// listener to close modal by click on button
-closeModal.addEventListener('click', (event) => {
+  titleModal.value = ''; // title value from modal
+  titleDescription.value = '';// description value from modal
+}
+
+function closeModalCallback(event) {
   event.preventDefault();
   hideModal();
-});
-// listener to close modal by click on dark layout
-window.addEventListener('click', (event) => {
-  if (event.target === modal) {
-    hideModal();
-  }
-});
+}
 
-// value of input
-createTask.addEventListener('click', (event) => {
+function createTaskCallback(event) {
   event.preventDefault();
-  const titleModalValue = titleModal.value; // title value from modal
-  const descriptionModalValue = titleDescription.value;// description value from modal
+  const titleModalValue = titleModal.value || 'title'; // title value from modal
+  const descriptionModalValue = titleDescription.value || 'description';// description value from modal
   const priorityModalValue = titlePriority.value;// priority value from modal
   // task item view to dynamic add in dom
   const taskNode = `<div class="tasks__item" data-id="open">
@@ -107,43 +101,73 @@ createTask.addEventListener('click', (event) => {
     itemPrior.textContent = priorityModalValue;
   }
   hideModal();
-});
-tasks.addEventListener('click', (event) => {
+}
+
+function tasksCallback(event) {
   const { target } = event;
   event.preventDefault();
   if (target.className === 'showConfig') {
     tasks.querySelectorAll('.showPop')
-        .forEach((element) => {
-          const elem = element;
-          elem.style.display = 'none';
-        });// hide configModal if clicking on another edit button
+      .forEach((element) => {
+        const elem = element;
+        elem.style.display = 'none';
+      });// hide configModal if clicking on another edit button
     target.querySelector('.showPop').style.display = 'block';
   }
   if (target.className === 'ok') {
-    target.closest('.tasks__item').style.backgroundColor = 'blue';
+    target.closest('.tasks__item').style.backgroundColor = 'lightpink';
+    target.closest('.tasks__item').querySelector('.complete').style.display = 'block';
+    target.closest('.tasks__item').querySelector('.ok').style.display = 'none';
     target.closest('.tasks__item').dataset.id = 'done';
     // rework event
   }
   if (target.className === 'del') {
     target.closest('.tasks__item')
-        .remove();
+      .remove();
   }
   if (target.className === 'edit') {
     setFlag('save');
     // looking for target obj and set values in global
     itemTitle = target.closest('.tasks__item')
-        .querySelector('.itemTitle');
+      .querySelector('.itemTitle');
     itemDescription = target.closest('.tasks__item')
-        .querySelector('.itemDescription');
+      .querySelector('.itemDescription');
     itemPrior = target.closest('.tasks__item')
-        .querySelector('.itemPrior');
+      .querySelector('.itemPrior');
     // записываю в текущее модальное окно поля из глобальной переменной
     titleModal.value = itemTitle.textContent;
     titleDescription.value = itemDescription.textContent;
     showModal();
   }
+  if (target.className === 'complete') {
+    target.closest('.tasks__item').style.backgroundColor = 'lightgrey';
+    target.closest('.tasks__item').querySelector('.complete').style.display = 'none';
+    target.closest('.tasks__item').querySelector('.ok').style.display = 'block';
+    target.closest('.tasks__item').dataset.id = 'undone';
+  }
   target.closest('.showPop').style.display = 'none';
-});
-searchFilter.oninput = filter;
-statusFilter.onchange = filter;
-priorityFilter.onchange = filter;
+}
+
+function closeModals(event) {
+  event.preventDefault();
+  if (event.target === modal) {
+    hideModal();
+  } else if (event.target.className !== 'showConfig') {
+    document.querySelectorAll('.showPop')
+      .forEach((element) => {
+        const elem = element;
+        elem.style.display = 'none';
+      });
+  }
+}
+
+// listener to show modal and set flag "create"
+createTaskInModal.addEventListener('click', createTaskInModalCallback);
+createTask.addEventListener('click', createTaskCallback);
+tasks.addEventListener('click', tasksCallback);
+searchFilter.addEventListener('input', filter);
+statusFilter.addEventListener('change', filter);
+priorityFilter.addEventListener('change', filter);
+// listener to close modal by click on button
+closeModal.addEventListener('click', closeModalCallback);
+window.addEventListener('click', closeModals);
