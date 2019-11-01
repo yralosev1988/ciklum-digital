@@ -91,18 +91,15 @@ function createTaskCallback(event) {
   </div>
   </div>`;
   if (createTask.dataset.condition === 'create') {
-    // create in DOM new task
     tasks.insertAdjacentHTML('beforeend', taskNode);
   }
   if (createTask.dataset.condition === 'save') {
-    // change task view
     itemTitle.textContent = titleModalValue;
     itemDescription.textContent = descriptionModalValue;
     itemPrior.textContent = priorityModalValue;
   }
   hideModal();
 }
-
 function tasksCallback(event) {
   const { target } = event;
   event.preventDefault();
@@ -115,11 +112,10 @@ function tasksCallback(event) {
     target.querySelector('.showPop').style.display = 'block';
   }
   if (target.className === 'ok') {
-    target.closest('.tasks__item').style.backgroundColor = 'lightpink';
+    target.closest('.tasks__item').style.backgroundColor = 'lightgreen';
     target.closest('.tasks__item').querySelector('.complete').style.display = 'block';
     target.closest('.tasks__item').querySelector('.ok').style.display = 'none';
     target.closest('.tasks__item').dataset.id = 'done';
-    // rework event
   }
   if (target.className === 'del') {
     target.closest('.tasks__item')
@@ -134,7 +130,6 @@ function tasksCallback(event) {
       .querySelector('.itemDescription');
     itemPrior = target.closest('.tasks__item')
       .querySelector('.itemPrior');
-    // записываю в текущее модальное окно поля из глобальной переменной
     titleModal.value = itemTitle.textContent;
     titleDescription.value = itemDescription.textContent;
     showModal();
@@ -145,7 +140,6 @@ function tasksCallback(event) {
     target.closest('.tasks__item').querySelector('.ok').style.display = 'block';
     target.closest('.tasks__item').dataset.id = 'undone';
   }
-  target.closest('.showPop').style.display = 'none';
 }
 
 function closeModals(event) {
@@ -161,13 +155,11 @@ function closeModals(event) {
   }
 }
 
-// listener to show modal and set flag "create"
 createTaskInModal.addEventListener('click', createTaskInModalCallback);
 createTask.addEventListener('click', createTaskCallback);
 tasks.addEventListener('click', tasksCallback);
 searchFilter.addEventListener('input', filter);
 statusFilter.addEventListener('change', filter);
 priorityFilter.addEventListener('change', filter);
-// listener to close modal by click on button
 closeModal.addEventListener('click', closeModalCallback);
 window.addEventListener('click', closeModals);
