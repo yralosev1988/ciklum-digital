@@ -138,7 +138,7 @@ function tasksCallback(event) {
     target.closest('.tasks__item').style.backgroundColor = 'lightgrey';
     target.closest('.tasks__item').querySelector('.complete').style.display = 'none';
     target.closest('.tasks__item').querySelector('.ok').style.display = 'block';
-    target.closest('.tasks__item').dataset.id = 'undone';
+    target.closest('.tasks__item').dataset.id = 'open';
   }
 }
 
